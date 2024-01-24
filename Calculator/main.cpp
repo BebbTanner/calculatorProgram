@@ -66,8 +66,21 @@ void Multiplication() {
 	cout << "The answer is: " << mulSolution << endl;
 }
 
+/*The basic structure for the division operation. I need to be sure that 
+the user does not try and divide by 0. Once again I think I need to be using the 
+exception handling for this. I will come back to that later to implement it.*/
 void Division() {
+	double x, y;
 
+	cout << "Please enter your x value: " << endl;
+	cin >> x;
+
+	cout << "Please enter your y value: " << endl;
+	cin >> y;
+
+	double divSolution = x / y;
+
+	cout << "The answer is: " << divSolution << endl;
 }
 
 void Addition() {
