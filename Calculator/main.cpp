@@ -99,6 +99,18 @@ void Addition() {
 	cout << "The answer is: " << addSolution << endl;
 }
 
+/*This function is finished. It is just going to take the two numbers
+that the user inputed and then subtract them and then print out the answer.*/
 void Subtraction() {
+	int x, y;
 
+	cout << "Please enter your x value: " << endl;
+	cin >> x;
+
+	cout << "Please enter your y value: " << endl;
+	cin >> y;
+
+	int subSolution = x - y;
+
+	cout << "The answer is: " << subSolution << endl;
 }
