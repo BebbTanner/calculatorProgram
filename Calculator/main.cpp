@@ -83,8 +83,20 @@ void Division() {
 	cout << "The answer is: " << divSolution << endl;
 }
 
+/*This function is finished. It is just going to take the two numbers 
+that the user inputed and add them together and then print out the answer.*/
 void Addition() {
+	int x, y;
 
+	cout << "Please enter your x value: " << endl;
+	cin >> x;
+
+	cout << "Please enter your y value: " << endl;
+	cin >> y;
+
+	int addSolution = x + y;
+
+	cout << "The answer is: " << addSolution << endl;
 }
 
 void Subtraction() {
