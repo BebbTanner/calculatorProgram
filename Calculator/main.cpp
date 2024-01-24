@@ -1,7 +1,16 @@
 /*Calculator program
 
 This program will use a switch case and a seris of functions to allow the user to 
-do some basic math functions*/
+do some basic math functions
+
+TODO:
+Add the exception handling to all of the functions
+	Add one to each to tell the user that they have to enter and number.
+	Add one to the Division function to tell the user that they cannot divide by 0.
+
+Take the cout statments in the beginig of int main and put it into and intro function.
+Add a feature that allows the user to restart the program if they would like.
+*/
 #include <iostream>
 #include <cstdlib>
 using namespace std;
