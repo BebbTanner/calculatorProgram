@@ -8,12 +8,14 @@ Add the exception handling to all of the functions
 	Add one to each to tell the user that they have to enter and number.
 	Add one to the Division function to tell the user that they cannot divide by 0.
 
-Take the cout statments in the beginig of int main and put it into and intro function.
+Take the cout statments in the beginig of int main and put it into and intro function. - FINISHED
 Add a feature that allows the user to restart the program if they would like.
 */
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+
+void introduction();
 
 void Multiplication();
 
@@ -24,16 +26,10 @@ void Addition();
 void Subtraction();
 
 int main() {
-	int x, y;
-	char Choice;
 
-	cout << "Welcome, what would you like to do?: " << endl;
-	cout << "Your choices are: " << endl;
-	cout << "A for addition." << endl;
-	cout << "S for subtraction." << endl;
-	cout << "M for multiplication" << endl;
-	cout << "D for division." << endl;
-	
+	introduction();
+
+	char Choice;
 	cin >> Choice;
 
 	if (Choice == 'A' || Choice == 'a') {
@@ -48,6 +44,16 @@ int main() {
 	else if (Choice == 'D' || Choice == 'd') {
 		Division();
 	}
+
+}
+
+void introduction() {
+	cout << "Welcome, what would you like to do?: " << endl;
+	cout << "Your choices are: " << endl;
+	cout << "A for addition." << endl;
+	cout << "S for subtraction." << endl;
+	cout << "M for multiplication" << endl;
+	cout << "D for division." << endl;
 
 }
 
