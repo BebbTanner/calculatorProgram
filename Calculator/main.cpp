@@ -13,6 +13,7 @@ Add a feature that allows the user to restart the program if they would like.
 */
 #include <iostream>
 #include <cstdlib>
+#include <string>
 using namespace std;
 
 void introduction();
@@ -27,24 +28,34 @@ void Subtraction();
 
 int main() {
 
-	introduction();
+	//introduction();
 
-	char Choice;
-	cin >> Choice;
+	//char Choice;
+	//cin >> Choice;
 
-	if (Choice == 'A' || Choice == 'a') {
-		Addition();
-	}
-	else if (Choice == 'S' || Choice == 's') {
-		Subtraction();
-	}
-	else if (Choice == 'M' || Choice == 'm') {
-		Multiplication();
-	}
-	else if (Choice == 'D' || Choice == 'd') {
-		Division();
-	}
+	//if (Choice == 'A' || Choice == 'a') {
+	//	Addition();
+	//}
+	//else if (Choice == 'S' || Choice == 's') {
+	//	Subtraction();
+	//}
+	//else if (Choice == 'M' || Choice == 'm') {
+	//	Multiplication();
+	//}
+	//else if (Choice == 'D' || Choice == 'd') {
+	//	Division();
+	//}
 
+	string number;
+
+	int num1;
+
+	cout << "Please enter a number: " << endl;
+	cin >> number;
+
+	num1 = stoi(number);
+
+	cout << "The number you entered is: " << num1 << endl;
 }
 
 void introduction() {
@@ -63,22 +74,20 @@ I forgot how to do that though, so for now I will leave the if statements in.
 I think it should be implemented as a try and catch error, but once again I 
 cannot remember.*/
 void Multiplication() {
-	int x, y;
+	string x, y;
 
 	cout << "Please enter your x value: " << endl;
 	cin >> x;
-	//if (x !=) {
 
-	//}
+	int valx = stoi(x);
+
 	cout << "Please enter your y value: " << endl;
 	cin >> y;
-	//if(){
+	int valy = stoi(y);
 
-	//}
+	int mulSolution;
 
-	int mulSolution = x * y;
-
-	cout << "The answer is: " << mulSolution << endl;
+	//cout << "The answer is: " << mulSolution << endl;
 }
 
 /*The basic structure for the division operation. I need to be sure that 
