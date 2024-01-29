@@ -5,11 +5,9 @@ do some basic math functions
 
 TODO:
 Add the exception handling to all of the functions
-	Add one to each to tell the user that they have to enter and number. - FINISHED
-	Add one to the Division function to tell the user that they cannot divide by 0. - FINISHED
-	Create a loop that will keep asking the user for a input if they have not entered a valid number
-
-
+Add one to each to tell the user that they have to enter and number. - FINISHED
+Add one to the Division function to tell the user that they cannot divide by 0. - FINISHED
+Create a loop that will keep asking the user for a input if they have not entered a valid number - FINISHED
 Take the cout statments in the beginig of int main and put it into and intro function. - FINISHED
 Add a feature that allows the user to restart the program if they would like.
 
@@ -17,7 +15,9 @@ NOTES:
 	I can check to see if the user enters the correct data type by using an if statement. 
 	It would like like this: if(!cin).
 
+	The cin.clear() should be used to clear the saved input of the previous variable.
 
+	I believe the cin.ignore is used to ignore the characters that were also in the previous string?
 */
 #include <iostream>
 #include <cstdlib>
@@ -36,38 +36,28 @@ void Subtraction();
 
 int main() {
 
-	//introduction();
+	introduction();
 
-	//char Choice;
-	//cin >> Choice;
+	char Choice;
+	cin >> Choice;
 
-	//if (Choice == 'A' || Choice == 'a') {
-	//	Addition();
-	//}
-	//else if (Choice == 'S' || Choice == 's') {
-	//	Subtraction();
-	//}
-	//else if (Choice == 'M' || Choice == 'm') {
-	//	Multiplication();
-	//}
-	//else if (Choice == 'D' || Choice == 'd') {
-	//	Division();
-	//}
-
-	int number1, number2;
-
-	cout << "Please enter a number: " << endl;
-	cin >> number1;
-
-	if (!cin) {
-		cout << "That is not a number! Please enter a number: " << endl;
+	if (Choice == 'A' || Choice == 'a') {
+		Addition();
+	}
+	else if (Choice == 'S' || Choice == 's') {
+		Subtraction();
+	}
+	else if (Choice == 'M' || Choice == 'm') {
+		Multiplication();
+	}
+	else if (Choice == 'D' || Choice == 'd') {
+		Division();
 	}
 
 }
 
 void introduction() {
 	cout << "Welcome, what would you like to do?: " << endl;
-	cout << "Your choices are: " << endl;
 	cout << "A for addition." << endl;
 	cout << "S for subtraction." << endl;
 	cout << "M for multiplication" << endl;
@@ -75,31 +65,51 @@ void introduction() {
 
 }
 
-/*The basic structure of this function is complete. I want to add the
-feature that prevents users from entering something that is not a number.
-I forgot how to do that though, so for now I will leave the if statements in.
-I think it should be implemented as a try and catch error, but once again I 
-cannot remember.*/
+/*This function is going to ask the user for 2 variables labeled x and y.
+It will then multiply those 2 numbers and print it out on the screen.
+
+This function is finished.*/
 void Multiplication() {
-	int x, y;
+	int x = 0, y = 0;
 
-	cout << "Please enter your x value: " << endl;
-	cin >> x;
+	/*This while statement is going to check and see if the input that the user entered
+	is a number.*/
+	while (true) {
+		cout << "Please enter your x value: " << endl;
+		cin >> x;
 
-	if (!cin) {
-		cout << "This is not a valid input." << endl;
+		/*The !cin will take the previously entered input and check to be sure that the 
+		data type matches the one of the declared variable. If it is not it will use the 
+		cin.clear to clear what was previously stored. cin.ignore will ignore the previous input 
+		that the user entered. This is also used for the y input value.*/
+		if (!cin) {
+			cout << "This is not a valid input." << endl;
+			cin.clear(x);
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+		else {
+			break;
+		}
+
 	}
 
-	cout << "Please enter your y value: " << endl;
-	cin >> y;
+	while (true) {
+		cout << "Please enter your y value: " << endl;
+		cin >> y;
 
-	if (!cin) {
-		cout << "This is not a valid input." << endl;
+
+		if (!cin) {
+			cout << "This is not a valid input." << endl;
+			cin.clear(y);
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+		else {
+			break;
+		}
+
 	}
 
-	int mulSolution = x * y;
-
-	cout << "The answer is: " << mulSolution << endl;
+	cout << "The answer is: " << x * y << endl;
 }
 
 /*The basic structure for the division operation. I need to be sure that 
@@ -118,11 +128,8 @@ void Division() {
 	cout << "Please enter your y value: " << endl;
 	cin >> y;
 	
-	if (!cin) {
+	if (!cin || y == 0) {
 		cout << "This is not a valid input." << endl;
-	}
-	else if (y == 0) {
-		cout << "You cannot divide by 0!" << endl;
 	}
 
 	double divSolution = x / y;
