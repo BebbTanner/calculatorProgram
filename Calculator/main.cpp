@@ -5,14 +5,19 @@ do some basic math functions
 
 TODO:
 Add the exception handling to all of the functions
-	Add one to each to tell the user that they have to enter and number.
-	Add one to the Division function to tell the user that they cannot divide by 0.
+	Add one to each to tell the user that they have to enter and number. - FINISHED
+	Add one to the Division function to tell the user that they cannot divide by 0. - FINISHED
+	Create a loop that will keep asking the user for a input if they have not entered a valid number
+
 
 Take the cout statments in the beginig of int main and put it into and intro function. - FINISHED
 Add a feature that allows the user to restart the program if they would like.
 
 NOTES:
-	
+	I can check to see if the user enters the correct data type by using an if statement. 
+	It would like like this: if(!cin).
+
+
 */
 #include <iostream>
 #include <cstdlib>
@@ -49,17 +54,15 @@ int main() {
 	//	Division();
 	//}
 
-	int number;
+	int number1, number2;
 
 	cout << "Please enter a number: " << endl;
-	cin >> number;
+	cin >> number1;
 
 	if (!cin) {
-		cout << "That is not a number!" << endl;
+		cout << "That is not a number! Please enter a number: " << endl;
 	}
-	else {
-		cout << "Your number is: " << number << endl;
-	}
+
 }
 
 void introduction() {
@@ -83,12 +86,20 @@ void Multiplication() {
 	cout << "Please enter your x value: " << endl;
 	cin >> x;
 
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
+
 	cout << "Please enter your y value: " << endl;
 	cin >> y;
 
-	int mulSolution;
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
 
-	//cout << "The answer is: " << mulSolution << endl;
+	int mulSolution = x * y;
+
+	cout << "The answer is: " << mulSolution << endl;
 }
 
 /*The basic structure for the division operation. I need to be sure that 
@@ -100,8 +111,19 @@ void Division() {
 	cout << "Please enter your x value: " << endl;
 	cin >> x;
 
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
+
 	cout << "Please enter your y value: " << endl;
 	cin >> y;
+	
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
+	else if (y == 0) {
+		cout << "You cannot divide by 0!" << endl;
+	}
 
 	double divSolution = x / y;
 
@@ -116,8 +138,16 @@ void Addition() {
 	cout << "Please enter your x value: " << endl;
 	cin >> x;
 
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
+
 	cout << "Please enter your y value: " << endl;
 	cin >> y;
+
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
 
 	int addSolution = x + y;
 
@@ -132,8 +162,16 @@ void Subtraction() {
 	cout << "Please enter your x value: " << endl;
 	cin >> x;
 
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
+
 	cout << "Please enter your y value: " << endl;
 	cin >> y;
+
+	if (!cin) {
+		cout << "This is not a valid input." << endl;
+	}
 
 	int subSolution = x - y;
 
