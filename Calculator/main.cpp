@@ -10,6 +10,9 @@ Add the exception handling to all of the functions
 
 Take the cout statments in the beginig of int main and put it into and intro function. - FINISHED
 Add a feature that allows the user to restart the program if they would like.
+
+NOTES:
+	
 */
 #include <iostream>
 #include <cstdlib>
@@ -46,16 +49,17 @@ int main() {
 	//	Division();
 	//}
 
-	string number;
-
-	int num1;
+	int number;
 
 	cout << "Please enter a number: " << endl;
 	cin >> number;
 
-	num1 = stoi(number);
-
-	cout << "The number you entered is: " << num1 << endl;
+	if (!cin) {
+		cout << "That is not a number!" << endl;
+	}
+	else {
+		cout << "Your number is: " << number << endl;
+	}
 }
 
 void introduction() {
@@ -74,16 +78,13 @@ I forgot how to do that though, so for now I will leave the if statements in.
 I think it should be implemented as a try and catch error, but once again I 
 cannot remember.*/
 void Multiplication() {
-	string x, y;
+	int x, y;
 
 	cout << "Please enter your x value: " << endl;
 	cin >> x;
 
-	int valx = stoi(x);
-
 	cout << "Please enter your y value: " << endl;
 	cin >> y;
-	int valy = stoi(y);
 
 	int mulSolution;
 
