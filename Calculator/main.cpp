@@ -12,7 +12,7 @@ Add a feature that allows the user to restart the program if they would like.
 
 Add the exception handling to all of the mathematical functions:
 	Multiplication - FINSHED
-	Division
+	Division - FINISHED
 	Addition - FINISHED
 	Subtraction - FINISED
 
@@ -23,6 +23,10 @@ NOTES:
 	The cin.clear() should be used to clear the saved input of the previous variable.
 
 	I believe the cin.ignore is used to ignore the characters that were also in the previous string?
+
+	I tried putting in x and y as parameters for the clear function just to be sure that it would clear the 
+	correct values. This was causing the function to overload and throw an E0308 error. I resolved the error 
+	and all of the functions should now work properly.
 */
 #include <iostream>
 #include <cstdlib>
@@ -40,34 +44,35 @@ void Subtraction();
 
 int main() {
 	using namespace std;
+	
+	/*This is going to run the introduction function that is defined below.*/
 	introduction();
 
-	char Choice;
-	cin >> Choice;
+		char Choice;
+		cin >> Choice;
 
-	if (Choice == 'A' || Choice == 'a') {
-		Addition();
-	}
-	else if (Choice == 'S' || Choice == 's') {
-		Subtraction();
-	}
-	else if (Choice == 'M' || Choice == 'm') {
-		Multiplication();
-	}
-	else if (Choice == 'D' || Choice == 'd') {
-		Division();
-	}
+		if (Choice == 'A' || Choice == 'a') {
+			Addition();
+		}
+		else if (Choice == 'S' || Choice == 's') {
+			Subtraction();
+		}
+		else if (Choice == 'M' || Choice == 'm') {
+			Multiplication();
+		}
+		else if (Choice == 'D' || Choice == 'd') {
+			Division();
+		}
 
 }
 
 void introduction() {
 	using namespace std;
-	cout << "Welcome, what would you like to do?: " << endl;
+	cout << "Welcome to my calculator, what would you like to do?:" << endl;
 	cout << "A for addition." << endl;
 	cout << "S for subtraction." << endl;
 	cout << "M for multiplication" << endl;
 	cout << "D for division." << endl;
-
 }
 
 /*This function is going to ask the user for 2 variables labeled x and y.
@@ -76,7 +81,7 @@ It will then multiply those 2 numbers and print it out on the screen.
 This function is finished.*/
 void Multiplication() {
 	using namespace std;
-	int x = 0, y = 0;
+	double x = 0, y = 0;
 
 	/*This while statement is going to check and see if the input that the user entered
 	is a number.*/
@@ -90,7 +95,7 @@ void Multiplication() {
 		that the user entered. This is also used for the y input value.*/
 		if (!cin) {
 			cout << "This is not a valid input." << endl;
-			cin.clear(x);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
@@ -106,7 +111,7 @@ void Multiplication() {
 
 		if (!cin) {
 			cout << "This is not a valid input." << endl;
-			cin.clear(y);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
@@ -116,15 +121,13 @@ void Multiplication() {
 	}
 
 	cout << "The answer is: " << x * y << endl;
+
 }
 
 /*This function is going to ask the user for 2 variables labeled x and y.
 It will then divide those 2 numbers and print it out on the screen.
 
-This function is having issues with the clear command. It is throwing 
-an E08308 error. It states that there is more than one instance of
-the overloaded function. Not sure why it is doing this considering 
-that this error is not being thrown with any of the other functions.*/
+This function is finished.*/
 void Division() {
 	using namespace std;
 	double x, y;
@@ -135,7 +138,7 @@ void Division() {
 
 		if (!cin) {
 			cout << "This is not a valid input." << endl;
-			cin.clear(x);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
@@ -149,7 +152,7 @@ void Division() {
 
 		if (!cin || y == 0) {
 			cout << "This is not a valid input!" << endl;
-			cin.clear(y);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
@@ -157,10 +160,7 @@ void Division() {
 		}
 	}
 
-
-	double divSolution = x / y;
-
-	cout << "The answer is: " << divSolution << endl;
+	cout << "The answer is: " << x / y << endl;
 }
 
 /*This function is going to ask the user for 2 variables labeled x and y.
@@ -169,7 +169,7 @@ It will then add those 2 numbers and print it out on the screen.
 This function is finished.*/
 void Addition() {
 	using namespace std;
-	int x, y;
+	double x, y;
 
 	while (true) {
 		cout << "Please enter your x value: " << endl;
@@ -177,7 +177,7 @@ void Addition() {
 
 		if (!cin) {
 			cout << "This is not a valid input." << endl;
-			cin.clear(x);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
@@ -192,7 +192,7 @@ void Addition() {
 
 		if (!cin) {
 			cout << "This is not a valid input." << endl;
-			cin.clear(y);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
@@ -212,7 +212,7 @@ It will then subtract those 2 numbers and print it out on the screen.
 This function is finished.*/
 void Subtraction() {
 	using namespace std;
-	int x, y;
+	double x, y;
 
 	while (true) {
 		cout << "Please enter your x value: " << endl;
@@ -220,7 +220,7 @@ void Subtraction() {
 
 		if (!cin) {
 			cout << "This is not a valid input." << endl;
-			cin.clear(x);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
@@ -235,7 +235,7 @@ void Subtraction() {
 
 		if (!cin) {
 			cout << "This is not a valid input." << endl;
-			cin.clear(y);
+			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else {
